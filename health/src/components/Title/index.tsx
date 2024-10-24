@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
+import styles from "./Title.style";
 
 export default function Title() {
   return (
-    <View>
-      <Text>Heath</Text>
+    <View style={ styles.boxTitle }>
+      <Text style={ styles.textTitle }>Heath</Text>
     </View>
   )
 }
