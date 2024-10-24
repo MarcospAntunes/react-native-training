@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, Share } from "react-native";
 import styles from "./ResultImc.style";
 
 type ResultImcProps = {
@@ -8,8 +8,24 @@ type ResultImcProps = {
 }
 
 export default function ResultImc({messageResultImc, resultImc}: ResultImcProps) {
+  const onShare = async () => {
+    const result = await Share.share({
+      message: `Meu imc hoje é: ${resultImc}`
+    })
+  }
+
   return (
     <View style={ styles.resultImc }>
+      <View style={ styles.boxShareButton }>
+        {
+          resultImc !== "" ?
+            <TouchableOpacity style={ styles.shareButton } onPress={onShare}>
+              <Text style={ styles.shareButtonText }>Share</Text>
+            </TouchableOpacity>
+          :
+            <View />
+        }
+      </View>
       <Text style={ styles.information }>{messageResultImc}</Text>
       <Text style={ styles.numberImc }>{resultImc}</Text>
     </View>
