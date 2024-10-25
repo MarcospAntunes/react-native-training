@@ -51,7 +51,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'red',
     paddingLeft: 20,
-  }
+  },
+
+  showResultImc: {
+    width: "100%",
+    height: "50%",
+  },
 });
 
 export default styles;
